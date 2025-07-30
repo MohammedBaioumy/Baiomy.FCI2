@@ -1,0 +1,42 @@
+﻿@model DetailsUpdateUserViewModel
+
+
+    <form asp-action="Update" enctype="multipart/form-data">
+    <div class="row justify-content-center align-items-center ">
+      
+    <div class=" row col-9 border border-1 p-3 border-warning  mb-2 border-opacity-10 rounded-3 justify-content-center align-items-center">
+
+    <div class="row">
+        <div class="form-group col-lg-12 mb-3">
+            <label asp-for="UserName" class="mt-1 mb-1"></label>
+            <input asp-for="UserName" class="form-control">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+            <div class="form-group col-lg-12 mb-3">
+            <label asp-for="FirstName" class="mt-1 mb-1"></label>
+            <input asp-for="FirstName" type="text" class="form-control">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+            <div class="form-group  col-lg-12 mb-3">
+            <label asp-for="LastName" class="mt-1 mb-1"></label>
+            <input asp-for="LastName" class="form-control">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+            <div class="form-group col-lg-12 mb-3">
+            <label asp-for="Email" class="mt-1  mb-1"></label>
+            <input asp-for="Email" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+    </div>
+        </div>
+    </div>
+    <div class="row col-lg-9 ms-lg-2 justify-content-center align-items-center  ">
+        <div class="w-75  ps-2   ">
+            <button class="btn btn-warning btn-group-lg   p-2 w-25 mt-1 " type="submit">Save</button>
+            <a class="btn btn-secondary  btn-group-lg   p-2 w-25 mt-1 " asp-action="Index" >Cancel</a>
+
+        </div>
+    </div>
+    </form>
+

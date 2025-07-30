@@ -1,0 +1,95 @@
+﻿@model EmployeeViewModel
+@inject IDepartmentServices departmentServices;
+@{
+    var departments = new SelectList(departmentServices.GetAllDepartmetns(), "Id", "Name");
+}
+<form asp-action="@ViewData["Action"]" enctype="multipart/form-data">
+
+    <div class="border border-1 p-3 border-@ViewData["color"]  mb-2 border-opacity-10 rounded-3">
+
+        <div class="row">
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Name" class="mt-1 mb-1"></label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Age" class="mt-1 mb-1"></label>
+                <input asp-for="Age" type="text" class="form-control">
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group  col-md-6 mb-3">
+                <label asp-for="Address" class="mt-1 mb-1"></label>
+                <input asp-for="Address" class="form-control">
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Email" class="mt-1  mb-1"></label>
+                <input asp-for="Email" class="form-control">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="PhoneNumber" class="mt-1  mb-1"></label>
+                <input asp-for="PhoneNumber" class="form-control">
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Salary" class="mt-1  mb-1"></label>
+                <input asp-for="Salary" class="form-control">
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="DepartmentID" class="mt-1  mb-2"></label>
+                <select class="form-select" asp-for="DepartmentID" asp-items="departments">
+                    <option value="@null">Choose Department</option>
+                </select>
+                <span asp-validation-for="DepartmentID" class="text-danger"></span>
+
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Gender" class="mb-2 p-1"></label><br />
+                @foreach (Gender genderOptions in Enum.GetValues(typeof(Gender)))
+                {
+                    <input class="form-check-input ms-1" type="radio" asp-for="Gender" value="@genderOptions">
+                    <label asp-for="Gender" class=" form-check-label ms-1 mb-1">@genderOptions</label>
+                }
+                <br />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="EmployeeType" class="mt-1  mb-2"></label>
+                <select class="form-select" asp-for="EmployeeType" asp-items="@Html.GetEnumSelectList(typeof(EmployeeType))">
+                    <option value="">Select type of employee</option>
+                </select>
+                <span asp-validation-for="EmployeeType" class="text-danger"></span>
+
+            </div>
+            <div class="form-group col-md-6 mb-3 ">
+                <label asp-for="Image" class="mt-1  mb-1"></label>
+                <input asp-for="Image"  type="file" class="form-control">
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6 mb-3 ">
+                <label asp-for="HirringDate" class="mt-1  mb-1"></label>
+                <input asp-for="HirringDate" type="date" class="form-control">
+                <span asp-validation-for="HirringDate" class="text-danger"></span>
+            </div>
+            <div class="form-check mt-1 ms-3  mb-2">
+                <input asp-for="IsActive" class="form-check-input  me-1" type="checkbox">
+                <label asp-for="IsActive" class="form-check-label mb-1"></label>
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-9  ">
+        <div class="w-75 ">
+            <button class="btn btn-@ViewData["color"] btn-group-lg   p-2 w-25 mt-1 " type="submit">@ViewData["button"]</button>
+            <a class="btn btn-secondary  btn-group-lg   p-2 w-25 mt-1 " asp-action="Index" >Cancel</a>
+
+        </div>
+
+    </div>
+</form>

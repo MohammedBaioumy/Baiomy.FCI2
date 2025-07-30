@@ -1,0 +1,51 @@
+﻿
+@model IdentityRole
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewData["Action"] = "Create";
+    ViewData["button"] = "Submit";
+    ViewData["color"] = "primary";
+}
+
+<div class="row justify-content-center align-items-center ">
+
+    <div class="row col-lg-9  m-1 justify-content-center align-items-center">
+        <h1 class="col-9 p-2 text-primary mt-2 mb-4">Create Role</h1>
+
+        <partial name="PartialViews/CreateUpdateRole_PartialView"> </partial>
+        
+    </div>
+</div>
+
+      @* <form asp-action="Create">
+
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="mt-1 mb-1"></label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="row  justify-content-center align-items-center  ">
+                <div class="  ps-2   ">
+                    <button class="btn btn-warning btn-group-lg   p-2 w-25 mt-1 " type="submit">Save</button>
+                    <a class="btn btn-secondary  btn-group-lg   p-2 w-25 mt-1 " asp-action="Index" type="submit">Cancel</a>
+
+                </div>
+            </div>
+
+      </form> *@
+
+
+ @*    </div>
+
+
+
+
+</div>
+ *@
+
+@section Validation {
+    <partial name="_ValidationScriptsPartial"></partial>
+}

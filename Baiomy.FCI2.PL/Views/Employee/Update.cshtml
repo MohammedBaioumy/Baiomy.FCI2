@@ -1,0 +1,23 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Updated";
+    ViewData["Action"] = "Update";
+    ViewData["button"] = "Save";
+    ViewData["color"] = "warning";
+
+
+}
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="row justify-content-center align-items-center">
+       
+        <div class=" col-11  m-1">
+            <h1 class=" p-2 text-warning mt-2 mb-4">Update Employee</h1>
+
+            <partial name="PartialViews/CreateUpdateEmployee_PartialView"></partial>
+
+        </div>
+    </div>
+
+@section Validation {
+    <partial name="_ValidationScriptsPartial"></partial>
+}

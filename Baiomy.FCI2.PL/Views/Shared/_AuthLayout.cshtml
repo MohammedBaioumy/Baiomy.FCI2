@@ -1,0 +1,131 @@
+﻿<!--
+Author: Colorlib
+Author URL: https://colorlib.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Creative Colorlib SignUp Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/css/signup_incss.css" rel="stylesheet" />
+  
+	<!-- //Custom Theme files -->
+	<!-- web font -->
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: linear-gradient(135deg, #a8edea, #fed6e3); /* Light blue to light pink */
+			color: #333; /* Dark text for better contrast */
+			min-height: 100vh;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+
+		/* Button Styles */
+		button {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Match body font */
+			background-color: #6a11cb; /* Vibrant purple */
+			color: #fff; /* White text */
+			border: none;
+			border-radius: 8px; /* Rounded corners */
+			padding: 12px 24px; /* Comfortable padding */
+			font-size: 16px; /* Readable font size */
+			font-weight: 600; /* Semi-bold text */
+			cursor: pointer;
+			transition: all 0.3s ease; /* Smooth transitions */
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+		}
+
+			/* Hover Effect */
+
+		input[type="submit"] {
+			font-size: .9em;
+			color: #fff;
+			background: #A311CB !important;
+			outline: none;
+			border: 1px solid #76b852 !important;
+			cursor: pointer;
+			padding: 0.9em;
+			-webkit-appearance: none;
+			width: 100%;
+			margin: 2em 0;
+			letter-spacing: 4px;
+		}
+
+			input[type="submit"]:hover {
+				-webkit-transition: .5s all;
+				-moz-transition: .5s all;
+				-o-transition: .5s all;
+				-ms-transition: .5s all;
+				transition: .5s all;
+				background: #C63AE2 !important;
+			}
+
+		.agileits-top p {
+			font-size: 1em;
+			color: #fff;
+			text-align: center;
+			letter-spacing: 1px;
+			font-weight: 300;
+		}
+
+			.agileits-top p a {
+				color: #fff;
+				-webkit-transition: .5s all;
+				-moz-transition: .5s all;
+				transition: .5s all;
+				font-weight: 400;
+			}
+
+				.agileits-top p a:hover {
+					color: #A311CB;
+				}
+
+		input.checkbox {
+			background: #A311CB;
+			cursor: pointer;
+			width: 1.2em;
+			height: 1.2em;
+		}
+		
+
+	</style>
+	<!-- //web font -->
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1> @ViewBag.Title </h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				@RenderBody();				
+			</div>
+		</div>
+		<!-- copyright -->
+		
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>

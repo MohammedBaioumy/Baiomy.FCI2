@@ -1,0 +1,32 @@
+﻿@model IdentityRole
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row  justify-content-center align-items-center">
+    <div class="col-10 row justify-content-center align-items-center m-1 ">
+        <h1 class=" p-1 text-success mt-2 mb-3 col-lg-8">Role Details</h1>
+
+        <div class="mt-2 justify-content-center align-items-center row g-3">
+
+            <div class="form-group  col-lg-8 mb-1">
+                <label asp-for="Id" class="mt-1 mb-1"></label>
+                <input asp-for="Id" class="form-control" disabled>
+            </div>
+            <div class="form-group  col-lg-8 mb-1">
+                <label asp-for="Name" class="mt-1 mb-1"></label>
+                <input asp-for="Name" class="form-control" disabled>
+            </div>
+
+        </div>
+        <div class="col-lg-8 justify-content-center align-items-center mt-2 ">
+            <div class="w-50">
+                <a class="btn btn-success   btn-group-lg  p-2 w-25" asp-action="Update" asp-route-id="@Model.Id">Edit</a>
+                <a class="btn btn-secondary  btn-group-lg pt-2 pb-2 ps-0 pe-0 w-25" asp-action="Index">Back</a>
+
+            </div>
+        </div>
+
+    </div>
+</div>

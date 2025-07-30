@@ -1,0 +1,138 @@
+﻿@model EmployeeDetailsDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row  justify-content-center align-items-center">
+    <div class="col-11 m-1 ">
+       
+        <h1 class=" p-1 text-success mt-2 mb-3">Employee details</h1>
+        <div class="row position-relative justify-content-end align-items-end ">
+            <div class="col-4 position-absolute top-0 start-100 translate-middle overflow-hidden">
+                @if (Model.Image is not null)
+                {
+                    <div class=" w-75  ms-auto me-5  ">
+                        <img src="~/AttatchmentFiles/Images/@Model.Image" class="w-50 rounded-pill p-2 img-fluid overflow-hidden" alt="Employee Picture" />
+                    </div>
+
+
+                }else
+                {                   
+                        <div class=" w-75 rounded-circle ms-auto me-5  ">
+                            <i class="fa-solid fa-user w-50 img-fluid border border-3 border-dark rounded-pill p-2 overflow-hidden"></i>
+                        </div>                                     
+                }
+            </div>
+       </div>
+
+
+<ul class="nav nav-tabs " id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+                <button class="nav-link active text-info" id="General-tab" data-bs-toggle="tab" data-bs-target="#General-tab-pane" type="button" role="tab" aria-controls="General-tab-pane" aria-selected="true">General</button>
+    </li>
+    <li class="nav-item" role="presentation">
+                <button class="nav-link text-info" id="Adminstration-tab" data-bs-toggle="tab" data-bs-target="#Adminstration-tab-pane" type="button" role="tab" aria-controls="Adminstration-tab-pane" aria-selected="false">Adminstration</button>
+    </li>
+   
+</ul>
+        <div class="tab-content border border-1 p-3   mb-2 border-opacity-25 rounded-3" id="myTabContent">
+            <div class="tab-pane fade show active" id="General-tab-pane" role="tabpanel" aria-labelledby="General-tab" tabindex="0">
+
+                <div class="mt-2 row g-3">
+
+                    <div class="form-group col-md-6 mb-1">
+                        <label asp-for="Name" class="mt-1 mb-1 "></label>
+                        <input asp-for="Name" class="form-control" disabled>                     
+                    </div>
+                    <div class="form-group col-md-6 mb-1">
+                        <label asp-for="Age" class="mt-1 mb-1"></label>
+                        <input asp-for="Age" type="text" class="form-control" disabled>
+                    </div>
+                    <div class="form-group  col-md-6 mb-1">
+                        <label asp-for="Address" class="mt-1 mb-1"></label>
+                        <input asp-for="Address" class="form-control" disabled>
+                    </div>
+                    <div class="form-group col-md-6 mb-1">
+                        <label asp-for="Email" class="mt-1  mb-1"></label>
+                        <input asp-for="Email" class="form-control" disabled>
+                    </div>
+                    <div class="form-group col-md-6 mb-1">
+                        <label asp-for="PhoneNumber" class="mt-1  mb-1"></label>
+                        <input asp-for="PhoneNumber" class="form-control" disabled>
+                    </div>
+                    <div class="form-group col-md-6 mb-1">
+                        <label asp-for="Salary" class="mt-1  mb-1"></label>
+                        <input asp-for="Salary" class="form-control" disabled>
+                    </div>
+                    <div class="form-group col-md-6 mb-1">
+                        <label asp-for="Department" class="mt-1  mb-1"></label>
+                        <input asp-for="Department" class="form-control" disabled>
+                    </div>
+                    <div class="form-group col-md-6 mb-1">
+                        <label asp-for="EmployeeType" class="mt-1  mb-2"></label>
+                        <select class="form-select " asp-for="EmployeeType" asp-items="@Html.GetEnumSelectList(typeof(EmployeeType))" disabled>
+                        </select>
+
+                    </div>
+                    <div class="form-group col-md-6 mb-1">
+                        <label asp-for="Gender" class="mb-2 p-1"></label><br />
+                        @foreach (Gender genderOptions in Enum.GetValues(typeof(Gender)))
+                        {
+                            <input class="form-check-input ms-1" type="radio" asp-for="Gender" value="@genderOptions" disabled>
+                            <label asp-for="Gender" class=" form-check-label ms-1 mb-1">@genderOptions</label>
+                        }
+                        <br />
+
+                    </div>
+
+
+                    <div class="form-group col-md-6  mb-3">
+                        <label asp-for="HirringDate" class="  mb-1"></label>
+                        <input asp-for="HirringDate" type="date" class="form-control" disabled>
+                    </div>
+                    <div class="form-check mt-1 ms-3  mb-1">
+                        <input asp-for="IsActive" class="form-check-input  me-1" type="checkbox" disabled>
+                        <label asp-for="IsActive" class="form-check-label mb-1"></label>
+                    </div>
+
+
+
+        </div>
+
+    </div>
+            <div class="tab-pane fade" id="Adminstration-tab-pane" role="tabpanel" aria-labelledby="Adminstration-tab" tabindex="0">
+
+                <form class="row g-3 mt-2">
+            <div class="col-md-6 ">
+                <label asp-for="CreatedBy" class="mt-2 mb-1"></label>
+                <input asp-for="CreatedBy" type="text" class="form-control" readonly>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="CreatedOn" class="mt-2 mb-1"></label>
+                <input asp-for="CreatedOn" type="text" class="form-control" readonly>
+            </div>
+                    <div class="col-md-6">
+                <label asp-for="LastModificationBy" class="mt-2 mb-1"></label>
+                <input asp-for="LastModificationBy" type="text" class="form-control" readonly>
+            </div>
+                    <div class="col-md-6">
+                <label asp-for="LastModificationOn" class="mt-2 mb-1"></label>
+                <input asp-for="LastModificationOn" type="text" class="form-control mb-2" readonly>
+            </div>
+        </form>   
+
+    </div>
+   
+        </div>
+
+       
+        <div class="col-9 mt-1 ">
+        <div class="w-50">
+            <a class="btn btn-success   btn-group-lg  p-2 w-25" asp-action="Update" asp-route-id="@Model.Id">Edit</a>
+            <a class="btn btn-secondary  btn-group-lg pt-2 pb-2 ps-0 pe-0 w-25" asp-action="Index">Back</a>
+
+            </div>
+        </div>
+    </div>
+    
+</div>

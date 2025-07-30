@@ -1,0 +1,31 @@
+﻿@model DepartmentViewModel
+@{
+    ViewData["Title"] = "Create";
+    ViewData["Type"] = "CreateDepartmentDTO";
+}
+
+<form asp-action="Create">
+
+    <div class="row justify-content-center align-items-center">
+          <div class="col-9 m-1 ">
+            <h1 class=" p-2 text-primary mt-3 mb-4">Add new department</h1>
+
+                <div class="border border-1 p-3 border-primary   mb-2 border-opacity-10 rounded-3">
+
+                    <partial name="PartialViews/CreateUpdateDepartment_PartialView.cshtml" ></partial>
+
+                </div>
+            
+                <div class="col-9  ">
+                    <div class="w-75">
+                          <button class="btn btn-primary btn-group-lg  w-25 mt-1 p-2" type="submit">Submit</button>
+                          <a class="btn btn-secondary  btn-group-lg w-25 mt-1 p-2" asp-action="Index" type="submit">Cancel</a>
+                    </div>
+                </div>
+
+          </div>
+    </div>
+</form>
+@section Validation {
+    <partial name="_ValidationScriptsPartial"></partial>
+}

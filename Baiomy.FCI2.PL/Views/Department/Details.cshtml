@@ -1,0 +1,97 @@
+﻿@model DepartmentDetailsDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row justify-content-center align-items-center">
+    <div class="col-9 m-1 ">
+       
+        <h1 class=" p-1 text-success mt-2 mb-3">Department details</h1>
+       
+<ul class="nav nav-tabs " id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+                <button class="nav-link active text-info" id="General-tab" data-bs-toggle="tab" data-bs-target="#General-tab-pane" type="button" role="tab" aria-controls="General-tab-pane" aria-selected="true">General</button>
+    </li>
+    <li class="nav-item" role="presentation">
+                <button class="nav-link text-info" id="Adminstration-tab" data-bs-toggle="tab" data-bs-target="#Adminstration-tab-pane" type="button" role="tab" aria-controls="Adminstration-tab-pane" aria-selected="false">Adminstration</button>
+    </li>
+   
+</ul>
+        <div class="tab-content border border-1 p-3   mb-2 border-opacity-25 rounded-3" id="myTabContent">
+            <div class="tab-pane fade show active" id="General-tab-pane" role="tabpanel" aria-labelledby="General-tab" tabindex="0">
+
+                <form class="mt-2 row g-3">
+
+            
+                   
+                    <div class="form-group col-md-6 ">
+                        <label asp-for="Code" class="mt-2 mb-1"></label>
+                        <input asp-for="Code" type="text" class="form-control" readonly>
+
+                    </div>
+                    <div class="form-group col-md-6 ">
+                        <label asp-for="Name" class="mt-2 mb-1"></label>
+                        <input asp-for="Name" type="text" class="form-control" readonly>
+
+
+
+                    </div>
+                    <div class="form-group  col-12">
+
+                        <label asp-for="Description" class="mt-2 mb-1"></label>
+                        <textarea asp-for="Description" class="form-control" placeholder="Description" readonly></textarea>
+
+
+                    </div>
+                    <div class="form-group col-12 mb-1">
+                        <label asp-for="CreationDate" class="mt-2  mb-1"></label>
+                        <input asp-for="CreationDate" type="date" class="form-control" readonly>
+
+
+                    </div>
+
+        </form>
+
+    </div>
+            <div class="tab-pane fade" id="Adminstration-tab-pane" role="tabpanel" aria-labelledby="Adminstration-tab" tabindex="0">
+
+                <form class="row g-3 mt-2">
+            <div class="col-md-6 ">
+                <label asp-for="CreatedBy" class="mt-2 mb-1"></label>
+                <input asp-for="CreatedBy" type="text" class="form-control" readonly>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="CreatedOn" class="mt-2 mb-1"></label>
+                <input asp-for="CreatedOn" type="text" class="form-control" readonly>
+            </div>
+            <div class="col-12">
+                <label asp-for="LastModificationBy" class="mt-2 mb-1"></label>
+                <input asp-for="LastModificationBy" type="text" class="form-control" readonly>
+            </div>
+            <div class="col-12">
+                <label asp-for="LastModificationOn" class="mt-2 mb-1"></label>
+                <input asp-for="LastModificationOn" type="text" class="form-control mb-2" readonly>
+            </div>
+        </form>
+
+    </div>
+   
+        </div>
+
+        @* <div class="col-9 m-1 ">
+            <div class="w-50 ">
+                <button class="btn btn-warning btn-group-lg p-2 w-25" type="submit">Save</button>
+                <a class="btn btn-secondary  btn-group-lg pt-2 pb-2 ps-0 pe-0 w-25" asp-action="Index">Cancel</a>
+
+            </div>
+        </div> *@
+        <div class="col-9 mt-1 ">
+        <div class="w-50">
+            <a class="btn btn-success   btn-group-lg  p-2 w-25" asp-action="Update" asp-route-id="@Model.ID">Edit</a>
+            <a class="btn btn-secondary  btn-group-lg pt-2 pb-2 ps-0 pe-0 w-25" asp-action="Index">Back</a>
+
+            </div>
+        </div>
+    </div>
+    
+</div>

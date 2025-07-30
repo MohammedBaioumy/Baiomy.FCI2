@@ -1,0 +1,91 @@
+﻿@model IEnumerable<UserViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["Operation"] != null)
+{
+    <partial name="ToastEmployeeDepartment_PartiaView"></partial>
+}
+
+  @if (Model.Count() > 0)
+        {
+<h1 class="mb-4 me-4 p-3 ">All Users</h1>
+           
+<table class="table table-striped table-hover text-center rounded-2 m-2   p-3">
+    <thead>
+        <tr>
+        
+            <th>@Html.DisplayNameFor(E => E.Id)</th>
+            <th>@Html.DisplayNameFor(E => E.UserName)</th>
+            <th>@Html.DisplayNameFor(E => E.Email)</th>
+            <th>Details</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+         @foreach (var user in Model)
+                    {
+                        <tr>
+                <td>@Html.DisplayFor(m => user.Id)</td>
+                <td>@Html.DisplayFor(m => user.UserName)</td>
+                <td>@Html.DisplayFor(m => user.Email)</td>
+                <td>
+                    <a type="button" asp-action="Details" asp-route-id="@user.Id" class="btn btn-success">
+                        <i class="fa-solid fa-circle-info me-1"></i> Details
+                    </a>
+                </td>
+                <td>
+                    <a type="button" asp-action="Update" asp-route-id="@user.Id" class="btn btn-warning">
+                        <i class="fa-solid fa-pen-to-square me-1"></i> Update
+                    </a>
+                </td>
+                <!-- Modal -->
+                <td>
+                    @*Delete old way*@
+                    @*   <a type="button" asp-action="Delete" asp-route-id="@Model" class="btn btn-danger">
+                <i class="fa-solid fa-eye me-1"></i> Delete</a> *@
+
+
+                    @*Delete using bootstrap modal *@
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteModal-@user.Id">
+                        <i class="fa-solid fa-eye me-1"></i> Delete
+                    </button>
+                    <div class="modal fade " id="DeleteModal-@user.Id" tabindex="-1" aria-labelledby="DeleteModal" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered ">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="DeleteModal">Delete User</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete : @user.UserName ?
+                                </div>
+                                <div class="modal-footer">
+                                    <form asp-action="Delete" asp-route-id="@user.Id">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+}
+else
+{
+    <div class="text-center alert alert-danger  mt-4 m-3 p-3 rounded-3 " role="alert">
+        <h2 class=""> There is no users :( </h2>
+    </div>
+}

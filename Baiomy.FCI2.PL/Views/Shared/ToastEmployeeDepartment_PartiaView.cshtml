@@ -1,0 +1,25 @@
+﻿
+<div aria-live="polite" aria-atomic="true" class=" z-3  position-relative p-2 rounded-3">
+    <!-- Position it: -->
+    <!-- - `.toast-container` for spacing between toasts -->
+    <!-- - `top-0` & `end-0` to position the toasts in the upper right corner -->
+    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+    <div class="toast-container position-absolute top-0 end-0 p-2">
+
+        <!-- Then put toasts within -->
+        <div class="toast fade show shadow @TempData["ToastColor"]  " id="myToast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header fs-5 fw-semibold">
+                <i class="fa-solid fa-laptop-code me-1"></i>
+                <strong class="me-auto ">FCI</strong>
+                <small class="text-body-secondary ">@TimeOnly.FromDateTime(DateTime.Now)</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body opacity-75 fs-6  fw-medium ">
+                      @TempData["Operation"]
+            </div>
+        </div>
+
+
+    </div>
+</div>
+    

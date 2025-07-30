@@ -1,0 +1,25 @@
+﻿@model DetailsUpdateUserViewModel
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div asp-validation-summary="ModelOnly"></div>
+<div class="row justify-content-center align-items-center ">
+
+    <div class="row col-lg-9  m-1 justify-content-center align-items-center">
+        <h1 class="col-9 p-2 text-warning mt-2 mb-4">Update User</h1>
+        <partial name="PartialViews/UpdateUser_PartialView"> </partial>
+    </div>
+
+
+   
+
+</div>
+
+
+    @section Validation {
+    <partial name="_ValidationScriptsPartial"></partial>
+    }

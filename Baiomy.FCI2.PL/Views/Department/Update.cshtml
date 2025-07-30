@@ -1,0 +1,35 @@
+﻿
+@model DepartmentViewModel;
+@{
+    ViewData["Title"] = "Update";
+    ViewData["Type"] = "UpdateDepartmentViewModel";
+}
+
+<form asp-action="Update" >
+     <div asp-validation-summary="ModelOnly"></div>
+      <div class="row justify-content-center align-items-center">
+       
+               <div class="col-9 m-1 ">
+                  <h1 class=" p-2 text-warning mt-2 mb-4">Update department</h1>
+                      <div class=" border border-1 border-warning p-2 border-opacity-10   mb-2 rounded-3">
+                  
+                       <partial name="PartialViews/CreateUpdateDepartment_PartialView.cshtml" ></partial>
+             
+                      </div>
+               </div>
+
+               <div class ="col-9 m-1 ">
+                      <div class="w-50 ">
+                          <button class="btn btn-warning btn-group-lg p-2 w-25"  type="submit">Save</button>
+                          <a class="btn btn-secondary  btn-group-lg pt-2 pb-2 ps-0 pe-0 w-25" asp-action="Index">Cancel</a>
+                      </div>
+               </div>
+    </div>
+
+
+
+</form>
+
+@section Validation {
+    <partial name="_ValidationScriptsPartial"></partial>
+}

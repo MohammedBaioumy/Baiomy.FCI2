@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FCI2</title>
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Baiomy.FCI2.PL.styles.css" asp-append-version="true" />
+
+       <style>
+       /* Custom Navbar Styling */
+       .navbar {
+           background: rgba(255, 255, 255, 0.1) !important; /* Semi-transparent background */
+           backdrop-filter: blur(10px); /* Blurred glass effect */
+           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+           padding: 10px 20px;
+       }
+
+       .navbar-brand {
+           font-size: 1.5rem;
+           font-weight: bold;
+            color: #4A0A8F !important; /* White text */
+       }
+
+       .navbar-nav .nav-link {
+            color: #fff !important; /* White text */
+           font-size: 1.1rem;
+           margin: 0 10px;
+           transition: color 0.3s ease;
+       }
+
+           .navbar-nav .nav-link:hover {
+                color: #11CBA3 !important; /* Purple hover effect */
+           }
+
+       .navbar-toggler {
+           border: none;
+           outline: none;
+       }
+
+       .navbar-toggler-icon {
+           background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+       }
+
+       /* Mobile Menu Styling */
+       .navbar-collapse {
+           justify-content: flex-end;
+       }
+
+       .navbar-nav {
+           align-items: center;
+       }
+
+       /* Sign Out Button Styling */
+       .btn-outline-danger {
+           color: #fff !important;
+           border-color: #fff !important;
+           transition: background-color 0.3s ease, color 0.3s ease;
+       }
+
+           .btn-outline-danger:hover {
+               background-color: #dc3545 !important; /* Red background on hover */
+               color: #fff !important;
+           }
+
+           .container{
+               margin-top: 5.5rem;
+           }
+
+        .container2 {
+            margin-top: 7.5rem;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a8edea, #fed6e3); /* Light blue to light pink */
+            color: #333; /* Dark text for better contrast */
+            min-height: 100vh;
+            height:100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+     </style>
+</head>
+<body class=".bg-info-subtle">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light fixed-top bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand ps-3 pe-3 fs-4 me-5" asp-area="" asp-controller="Home" asp-action="Index">FCI2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav ms-auto flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark p-1 ms-2 fs-5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark p-1 ms-2 fs-5" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark p-1 ms-2 fs-5" asp-area="" asp-controller="Department" asp-action="Index">Departments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark p-1 ms-2 fs-5" asp-area="" asp-controller="Employee" asp-action="Index">Employees</a>
+                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item text-dark ">
+                                <a class="nav-link text-dark p-1 ms-2  fs-5" asp-area="" asp-controller="User" asp-action="Index">Users</a>
+                            </li>
+                            <li class="nav-item text-dark ">
+                                <a class="nav-link text-dark p-1 ms-2  fs-5 " asp-area="" asp-controller="Role" asp-action="Index">Roles</a>
+                            </li>
+                        }
+                        <li class="nav-item ms-auto pe-5 ">
+                            <a class=" btn btn-outline-danger  text-dark " asp-area="" asp-controller="Account" asp-action="SignOut">Sign out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+
+    </header>
+    <div class="container ">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class=" footer  text-muted">
+        <div class="mt-auto align-items-center text-center">
+            <p>  &copy; @DateTime.Now.Year - FCI2 -All rights reserved. </p>
+        </div>
+    </footer> 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/font-awesome/js/fontawesome.min.js"></script>
+    <script src="~/lib/font-awesome/js/all.min.js"></script>
+   
+    @await RenderSectionAsync("Validation", required: false)
+    @* @await RenderSectionAsync("Toasts", required: false) *@
+
+
+</body>
+</html>
