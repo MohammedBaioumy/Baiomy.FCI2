@@ -53,8 +53,9 @@ namespace Baiomy.FCI2.PL.Controllers
 
 			var result = await _userManager.CreateAsync(user, model.Password);
 			if (result.Succeeded)
+			{
 				return RedirectToAction(nameof(SignIn));
-
+			}
 			foreach (var error in result.Errors)
 			{
 				ModelState.AddModelError(string.Empty, error.Description);
